@@ -1,0 +1,12 @@
+{
+  "name": "smarttech-agentforce-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Demonstração de atendimento e pré-vendas; integração Salesforce Agentforce em desenvolvimento.",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {"node": ">=18"}
+}
