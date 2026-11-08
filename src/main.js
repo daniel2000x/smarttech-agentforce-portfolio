@@ -10,6 +10,7 @@ for(const product of products){
   c.append(node('div','product-icon',product.icon));
   c.append(node('span','product-category',product.category.toUpperCase()));
   c.append(node('h3','',product.name));
+  c.append(node('p','product-code',`Código: ${product.id}`));
   c.append(node('p','',product.description));
   const foot=node('div','product-foot');foot.append(node('b','',money(product.price)));
   const btn=node('button','choose-product','Tenho interesse ↗');btn.type='button';btn.addEventListener('click',()=>{$('lead-product').value=product.id;$('lead-name').focus();location.hash='atendimento';});foot.append(btn);
