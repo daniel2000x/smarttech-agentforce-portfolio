@@ -1,12 +1,485 @@
+
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="theme-color" content="#0c1628"/><meta name="description" content="SmartTech AI — demonstração de atendimento e pré-vendas com roadmap para Salesforce Agentforce."/><title>SmartTech AI | Atendimento inteligente</title><link rel="stylesheet" href="./src/style.css"/></head>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#0c1628"/>
+  <meta name="description" content="SmartTech AI — portfólio de atendimento inteligente com Salesforce Agentforce, CRM e automações."/>
+  <title>SmartTech AI | Atendimento inteligente</title>
+  <link rel="stylesheet" href="./src/style.css"/>
+</head>
+
 <body>
-<div class="topline"><div class="container flex between"><span>SMARTTECH <b>AI</b> · PORTFÓLIO</span><span class="sim-pill"><span class="dot"></span> AMBIENTE DEMONSTRATIVO</span></div></div>
-<header class="container nav"><a class="logo" href="#inicio" aria-label="SmartTech AI início"><span class="logo-mark">S</span><span>SmartTech<span class="accent">AI</span></span></a><nav aria-label="Navegação principal"><a href="#solucao">Solução</a><a href="#catalogo">Catálogo</a><a href="#atendimento">Atendimento</a><a href="#crm">CRM</a></nav><a class="nav-action" href="#atendimento">Testar demonstração <span>↗</span></a></header>
+
+<div class="topline">
+  <div class="container flex between">
+    <span>SMARTTECH <b>AI</b> · PORTFÓLIO</span>
+    <span class="sim-pill">
+      <span class="dot"></span>
+      AMBIENTE DEMONSTRATIVO
+    </span>
+  </div>
+</div>
+
+<header class="container nav">
+  <a class="logo" href="#inicio" aria-label="SmartTech AI início">
+    <span class="logo-mark">S</span>
+    <span>SmartTech<span class="accent">AI</span></span>
+  </a>
+
+  <nav aria-label="Navegação principal">
+    <a href="#solucao">Solução</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#atendimento">Atendimento</a>
+    <a href="#crm">CRM</a>
+  </nav>
+
+  <a class="nav-action" href="#atendimento">
+    Testar demonstração <span>↗</span>
+  </a>
+</header>
+
 <main>
-<section id="inicio" class="container hero"><div><span class="eyebrow">SALESFORCE · AGENTFORCE · AUTOMAÇÃO</span><h1>Atendimento que <em>entende</em> o cliente e conecta oportunidades.</h1><p>Uma experiência de pré-vendas que apresenta produtos, tira dúvidas e registra interesses. Esta interface já funciona em modo simulado; a integração real com o Salesforce é a próxima etapa do projeto.</p><div class="hero-actions"><a href="#atendimento" class="primary-btn">Experimentar assistente <span>↗</span></a><a href="#solucao" class="outline-btn">Conhecer arquitetura</a></div><div class="hero-foot"><span><b>4</b> produtos de exemplo</span><span><b>0</b> integrações reais nesta versão</span><span><b>100%</b> dados sintéticos</span></div></div><div class="hero-panel"><div class="window-top"><span class="status-circle"></span><span>SmartTech AI / Agent workspace</span><span class="panel-dots">•••</span></div><div class="diagram"><div class="diagram-node customer">👤 <span>Visitante</span><small>Site / Chat</small></div><div class="diagram-line"></div><div class="diagram-node agent">✦ <span>Agente de atendimento</span><small>Demo de regras · Agentforce planejado</small></div><div class="diagram-fork"><div>📦<b>Produtos</b><small>Catálogo</small></div><div>◎<b>Leads</b><small>CRM planejado</small></div><div>⚡<b>Flows</b><small>Automação planejada</small></div></div></div><div class="panel-notice">Roadmap: substituir o mecanismo simulado por um agente Agentforce conectado ao Salesforce CRM.</div></div></section>
-<section id="solucao" class="feature-wrap"><div class="container"><div class="section-head"><div><span class="eyebrow">O PROJETO</span><h2>Do primeiro contato ao interesse comercial</h2></div><p>Arquitetura pensada para uma implementação real com dados autorizados, ações Flow e validação humana nas decisões sensíveis.</p></div><div class="features"><div><span class="feature-icon">01</span><h3>Atendimento contextual</h3><p>Respostas orientadas por catálogo e políticas, com tratamento de perguntas fora de escopo.</p></div><div><span class="feature-icon">02</span><h3>Qualificação de leads</h3><p>Coleta consentida de dados e registro do produto de interesse. Nesta versão, apenas em memória.</p></div><div><span class="feature-icon">03</span><h3>CRM e automação</h3><p>Próxima fase: ações Agentforce + Salesforce Flow para criação e acompanhamento de Leads.</p></div></div></div></section>
-<section id="catalogo" class="container section"><div class="section-head"><div><span class="eyebrow">CATÁLOGO FICTÍCIO</span><h2>Produtos para cada necessidade</h2></div><p>Preços e estoque apenas para demonstração. Nenhuma compra é realizada nesta página.</p></div><div id="products" class="product-grid"></div></section>
-<section id="atendimento" class="container section demo"><div class="section-head"><div><span class="eyebrow">EXPERIMENTE</span><h2>Converse com o assistente</h2></div><p>O chat abaixo usa lógica local determinística para simular intenções. Não é um modelo generativo conectado ao Salesforce.</p></div><div class="demo-grid"><div class="chat-card"><div class="chat-title"><div class="assistant-avatar">✦</div><div><b>SmartTech Assist</b><span>Pré-vendas · Modo simulado</span></div><span class="chat-live">DEMO</span></div><div id="chat-messages" class="chat-messages" aria-live="polite"></div><div class="quick-prompts"><button type="button" data-question="Quero um notebook para trabalho">Notebook</button><button type="button" data-question="Tem monitor para home office?">Monitor</button><button type="button" data-question="Qual é a política de entrega?">Entrega</button></div><form id="chat-form" class="chat-form"><label class="sr-only" for="chat-input">Digite sua mensagem</label><input id="chat-input" placeholder="Pergunte sobre um produto..." maxlength="300" required autocomplete="off"/><button type="submit" aria-label="Enviar mensagem">➤</button></form></div><aside class="lead-card"><span class="eyebrow">QUALIFICAÇÃO</span><h3>Transforme uma conversa em oportunidade</h3><p>Registre um interesse fictício. O formulário valida campos e consentimento, mas não transmite nada para servidores.</p><form id="lead-form"><label for="lead-name">Nome fictício</label><input id="lead-name" name="name" placeholder="Ex.: Ana Exemplo" required maxlength="80"/><label for="lead-email">E-mail fictício</label><input id="lead-email" type="email" name="email" placeholder="ana@example.com" required maxlength="120"/><label for="lead-product">Produto de interesse</label><select id="lead-product" name="productId" required></select><label class="check-label"><input name="consent" type="checkbox" required/><span>Confirmo que estou usando dados fictícios e autorizo o registro temporário nesta sessão.</span></label><button type="submit" class="primary-btn wide">Registrar lead simulado <span>↗</span></button><div id="lead-message" role="status" class="form-feedback"></div></form><div class="privacy-tip">🔒 Os dados permanecem apenas na memória desta aba. Recarregar a página os elimina.</div></aside></div></section>
-<section id="crm" class="container section records"><div class="section-head"><div><span class="eyebrow">VISÃO DO CRM</span><h2>Leads desta sessão</h2></div><p>Prévia local da estrutura que depois será armazenada no objeto Lead do Salesforce.</p></div><div class="metric-row"><div><span>Leads simulados</span><b id="lead-count">0</b></div><div><span>Produtos</span><b>4</b></div><div><span>Conexão Salesforce</span><b class="not-connected">Não conectada</b></div></div><div class="table-scroll"><table><thead><tr><th>Lead</th><th>E-mail</th><th>Interesse</th><th>Status</th></tr></thead><tbody id="lead-list"><tr><td colspan="4" class="empty">Nenhum lead ainda. Use o formulário de qualificação acima.</td></tr></tbody></table></div></section>
-</main><footer><div class="container footer-inner"><div class="logo"><span class="logo-mark">S</span><span>SmartTech<span class="accent">AI</span></span></div><div>Projeto autoral para portfólio · Salesforce Agentforce (integração planejada)</div><a href="https://github.com/daniel2000x" rel="noopener noreferrer" target="_blank">GitHub ↗</a></div></footer><script type="module" src="./src/main.js"></script></body></html>
+
+<!-- APRESENTAÇÃO -->
+<section id="inicio" class="container hero">
+  <div>
+    <span class="eyebrow">SALESFORCE · AGENTFORCE · AUTOMAÇÃO</span>
+
+    <h1>
+      Atendimento que <em>entende</em> o cliente e conecta oportunidades.
+    </h1>
+
+    <p>
+      Uma experiência de pré-vendas que apresenta produtos,
+      tira dúvidas e registra interesses.
+
+      Este projeto reúne uma interface demonstrativa e
+      um agente de inteligência artificial desenvolvido
+      com Salesforce Agentforce.
+
+      O chat real do Salesforce está em fase de validação
+      nesta página.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#atendimento" class="primary-btn">
+        Experimentar assistente <span>↗</span>
+      </a>
+
+      <a href="#solucao" class="outline-btn">
+        Conhecer arquitetura
+      </a>
+    </div>
+
+    <div class="hero-foot">
+      <span><b>4</b> produtos de exemplo</span>
+      <span><b>1</b> canal Agentforce configurado</span>
+      <span><b>100%</b> catálogo fictício</span>
+    </div>
+  </div>
+
+  <div class="hero-panel">
+    <div class="window-top">
+      <span class="status-circle"></span>
+      <span>SmartTech AI / Agent workspace</span>
+      <span class="panel-dots">•••</span>
+    </div>
+
+    <div class="diagram">
+      <div class="diagram-node customer">
+        👤
+        <span>Visitante</span>
+        <small>Site / Chat</small>
+      </div>
+
+      <div class="diagram-line"></div>
+
+      <div class="diagram-node agent">
+        ✦
+        <span>Agente de atendimento</span>
+        <small>Salesforce Agentforce + Demo local</small>
+      </div>
+
+      <div class="diagram-fork">
+        <div>
+          📦
+          <b>Produtos</b>
+          <small>Catálogo</small>
+        </div>
+
+        <div>
+          ◎
+          <b>Leads</b>
+          <small>CRM planejado</small>
+        </div>
+
+        <div>
+          ⚡
+          <b>Flows</b>
+          <small>Consulta de produtos</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-notice">
+      O chat flutuante utiliza Salesforce Agentforce.
+      A demonstração local continua disponível para comparação.
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE O PROJETO -->
+<section id="solucao" class="feature-wrap">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">O PROJETO</span>
+        <h2>Do primeiro contato ao interesse comercial</h2>
+      </div>
+
+      <p>
+        Arquitetura desenvolvida para demonstrar
+        atendimento inteligente, integração com CRM,
+        automações Salesforce Flow e escalonamento humano.
+      </p>
+    </div>
+
+    <div class="features">
+
+      <div>
+        <span class="feature-icon">01</span>
+        <h3>Atendimento contextual</h3>
+        <p>
+          Respostas orientadas por catálogo e políticas,
+          com tratamento de perguntas fora de escopo.
+        </p>
+      </div>
+
+      <div>
+        <span class="feature-icon">02</span>
+        <h3>Qualificação de leads</h3>
+        <p>
+          Coleta consentida de dados e registro do
+          produto de interesse.
+          Nesta versão, apenas em memória local.
+        </p>
+      </div>
+
+      <div>
+        <span class="feature-icon">03</span>
+        <h3>CRM e automação</h3>
+        <p>
+          Agente Salesforce conectado a um Flow de
+          consulta de produtos e preços.
+          A criação automática de Leads é uma evolução planejada.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="container section">
+
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">CATÁLOGO FICTÍCIO</span>
+      <h2>Produtos para cada necessidade</h2>
+    </div>
+
+    <p>
+      Preços e estoque apenas para demonstração.
+      Nenhuma compra é realizada nesta página.
+    </p>
+  </div>
+
+  <div id="products" class="product-grid"></div>
+
+</section>
+
+<!-- ATENDIMENTO -->
+<section id="atendimento" class="container section demo">
+
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">EXPERIMENTE</span>
+      <h2>Converse com o assistente</h2>
+    </div>
+
+    <p>
+      O assistente abaixo utiliza lógica local simulada.
+      Para conversar com o Salesforce Agentforce,
+      abra o chat flutuante do Salesforce quando estiver disponível.
+    </p>
+  </div>
+
+  <div class="demo-grid">
+
+    <div class="chat-card">
+
+      <div class="chat-title">
+        <div class="assistant-avatar">✦</div>
+
+        <div>
+          <b>SmartTech Assist</b>
+          <span>Pré-vendas · Modo simulado</span>
+        </div>
+
+        <span class="chat-live">DEMO</span>
+      </div>
+
+      <div
+        id="chat-messages"
+        class="chat-messages"
+        aria-live="polite">
+      </div>
+
+      <div class="quick-prompts">
+        <button
+          type="button"
+          data-question="Quero um notebook para trabalho">
+          Notebook
+        </button>
+
+        <button
+          type="button"
+          data-question="Tem monitor para home office?">
+          Monitor
+        </button>
+
+        <button
+          type="button"
+          data-question="Qual é a política de entrega?">
+          Entrega
+        </button>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <label class="sr-only" for="chat-input">
+          Digite sua mensagem
+        </label>
+
+        <input
+          id="chat-input"
+          placeholder="Pergunte sobre um produto..."
+          maxlength="300"
+          required
+          autocomplete="off"
+        />
+
+        <button type="submit" aria-label="Enviar mensagem">
+          ➤
+        </button>
+      </form>
+
+    </div>
+
+    <!-- FORMULÁRIO DE LEADS -->
+    <aside class="lead-card">
+
+      <span class="eyebrow">QUALIFICAÇÃO</span>
+
+      <h3>Transforme uma conversa em oportunidade</h3>
+
+      <p>
+        Registre um interesse fictício.
+        O formulário valida campos e consentimento,
+        mas não transmite nada para servidores.
+      </p>
+
+      <form id="lead-form">
+
+        <label for="lead-name">Nome fictício</label>
+
+        <input
+          id="lead-name"
+          name="name"
+          placeholder="Ex.: Ana Exemplo"
+          required
+          maxlength="80"
+        />
+
+        <label for="lead-email">E-mail fictício</label>
+
+        <input
+          id="lead-email"
+          type="email"
+          name="email"
+          placeholder="ana@example.com"
+          required
+          maxlength="120"
+        />
+
+        <label for="lead-product">
+          Produto de interesse
+        </label>
+
+        <select
+          id="lead-product"
+          name="productId"
+          required>
+        </select>
+
+        <label class="check-label">
+          <input
+            name="consent"
+            type="checkbox"
+            required
+          />
+
+          <span>
+            Confirmo que estou usando dados fictícios
+            e autorizo o registro temporário nesta sessão.
+          </span>
+        </label>
+
+        <button type="submit" class="primary-btn wide">
+          Registrar lead simulado <span>↗</span>
+        </button>
+
+        <div
+          id="lead-message"
+          role="status"
+          class="form-feedback">
+        </div>
+
+      </form>
+
+      <div class="privacy-tip">
+        🔒 Os dados permanecem apenas na memória desta aba.
+        Recarregar a página os elimina.
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+<!-- VISÃO DO CRM -->
+<section id="crm" class="container section records">
+
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">VISÃO DO CRM</span>
+      <h2>Leads desta sessão</h2>
+    </div>
+
+    <p>
+      Prévia local da estrutura que poderá ser
+      armazenada no objeto Lead do Salesforce
+      em uma evolução futura do projeto.
+    </p>
+  </div>
+
+  <div class="metric-row">
+
+    <div>
+      <span>Leads simulados</span>
+      <b id="lead-count">0</b>
+    </div>
+
+    <div>
+      <span>Produtos</span>
+      <b>4</b>
+    </div>
+
+    <div>
+      <span>Chat Salesforce</span>
+      <b>Em validação</b>
+    </div>
+
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Lead</th>
+          <th>E-mail</th>
+          <th>Interesse</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody id="lead-list">
+        <tr>
+          <td colspan="4" class="empty">
+            Nenhum lead ainda.
+            Use o formulário de qualificação acima.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer>
+  <div class="container footer-inner">
+
+    <div class="logo">
+      <span class="logo-mark">S</span>
+      <span>SmartTech<span class="accent">AI</span></span>
+    </div>
+
+    <div>
+      Projeto autoral de portfólio ·
+      Salesforce Agentforce ·
+      Chat integrado em validação
+    </div>
+
+    <a
+      href="https://github.com/daniel2000x"
+      rel="noopener noreferrer"
+      target="_blank">
+      GitHub ↗
+    </a>
+
+  </div>
+</footer>
+
+<!-- JAVASCRIPT ORIGINAL DO PROJETO -->
+<script type="module" src="./src/main.js"></script>
+
+<!-- INTEGRAÇÃO OFICIAL SALESFORCE AGENTFORCE -->
+<script type="text/javascript">
+
+  function initEmbeddedMessaging() {
+    try {
+
+      embeddedservice_bootstrap.settings.language = 'pt_BR';
+
+      embeddedservice_bootstrap.init(
+        '00Daj00001ENnYw',
+        'SmartTech_Web_Chat',
+        'https://orgfarm-a123227cc1-dev-ed.develop.my.site.com/ESWSmartTechWeb1794146121464',
+        {
+          scrt2URL: 'https://orgfarm-a123227cc1-dev-ed.develop.my.salesforce-scrt.com'
+        }
+      );
+
+    } catch (err) {
+      console.error(
+        'Error loading Embedded Messaging: ',
+        err
+      );
+    }
+  }
+
+</script>
+
+<script
+  type="text/javascript"
+  src="https://orgfarm-a123227cc1-dev-ed.develop.my.site.com/ESWSmartTechWeb1794146121464/assets/js/bootstrap.min.js"
+  onload="initEmbeddedMessaging()">
+</script>
+
+</body>
+</html>
